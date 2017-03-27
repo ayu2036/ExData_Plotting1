@@ -1,5 +1,6 @@
 readData <- function()
 {
+  library(chron)
   data <- read.csv(file="household_power_consumption.txt", header = TRUE, sep=";", na.strings = "?")
   data1 <- data[data$Date == "1/2/2007",]
   data2 <- data[data$Date == "2/2/2007",]
@@ -14,7 +15,7 @@ plot2 <- function()
 {
   data3 <- readData()
   png("plot2.png", width=480, height=480)
-  plot(Global_active_power ~ DateTime, data=data2, type='l',
+  plot(Global_active_power ~ DateTime, data=data3, type='l',
        xlab="",
        ylab="Global Active Power (kilowatts)",
        xaxt='n',
